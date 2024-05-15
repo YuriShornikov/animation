@@ -25,9 +25,7 @@ const chat = document.querySelector('.chat');
 const closeBtn = document.querySelector('.close');
 
 circle.addEventListener('click', () => {
-  circle.style.transform = 'scale(0)';
-  circle.style.opacity = '0';
-
+  circle.classList.add('circle-animation');
   setTimeout(() => {
       chat.classList.remove('hidden');
   }, 300);
@@ -36,6 +34,10 @@ circle.addEventListener('click', () => {
 
 closeBtn.addEventListener('click', () => {
   chat.classList.add('hidden');
-  circle.style.transform = 'scale(1)';
-  circle.style.opacity = '1';
+  circle.classList.remove('circle-animation');
+  circle.classList.add('circle-animation-back');
+  setTimeout(() => {
+    circle.classList.remove('circle-animation-back');
+}, 300);
+  
 });
